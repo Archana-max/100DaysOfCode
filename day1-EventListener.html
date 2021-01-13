@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT LISTENER</title>
+    <style>
+        .circle{
+            width:200px;
+            height: 200px;
+            border-radius:50%;
+            background-color: coral;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+        }
+        .removeButton{
+            width:100px;
+            height:30px;
+            text-align: center!important;
+        }
+        button{
+            text-align: center!important;
+            margin-left:40px;
+        }
+    </style>
+</head>
+<body>
+     <div Class="Container">
+    <H4>DAY1-EVENT LISTENER</H4>
+    <button class="btn">Click</button>
+
+    <div class="circle">
+        Hover Over Me 
+        <p class="para"></p>
+        <button class="removeButton"onclick="RemoveEvent(e)">Remove</button>
+    </div>
+
+   <h4>EVENT PROPAGATION</h4> 
+   <div class="event">
+       <ul class="list">
+           <li><button class="add">ADD</button></li>
+           <li><button class="remove">REMOVE</button></li>
+
+       </ul>
+   </div>
+
+   <div class="event1">
+    <ul class="list1">
+        <li><button class="add1">ADD</button></li>
+        <li><button class="remove1">REMOVE</button></li>
+
+    </ul>
+</div>
+
+</div> 
+ <script>
+     //Event Listener
+     let elem =document.querySelector(".btn");
+     let circle=document.querySelector(".circle");
+     elem.addEventListener("click",function(e){
+         alert("Added Event Listener");
+     })
+     circle.addEventListener("mousemove",myfunction);
+    function myfunction(){
+        document.querySelector(".para").innerHTML=Math.floor(Math.random()*100);
+     };
+     let event;
+     function RemoveEvent(e){
+         event=e;
+         console.log(e);
+        circle.removeEventListener("mousemove",myfunction);
+     }
+
+     //Event propagation
+     document.querySelector(".add1").addEventListener("click",()=> console.log("Add button was Clicked"),true);
+     document.querySelector(".list1").addEventListener("click",()=> console.log("list was Clicked"),true)
+     document.querySelector(".event1").addEventListener("click",()=> console.log("Div was Clicked"),true)
+
+</script> 
+
+
+</body>
+</html>
