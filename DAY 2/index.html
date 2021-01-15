@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NODES in JAVASCRIPT</title>
+</head>
+<body>
+    <!-- Nodename property specifies the name of the node.h1,p
+    NodeValue property specifies the value of the node.
+    document.body.innerHTML returns the innerHTML of the body
+    document.documentElemrnt returns the innerHTML of the whole Document-->
+
+
+    <div class="container">
+        <p class="first">I"m the first Paragraph</p>
+        <p class="second">I'm Second para</p>
+    </div>
+
+    <script>
+        let element=document.createElement("p");
+        let node=document.createTextNode("Im new para");
+        element.appendChild(node);
+        console.log(element);
+
+        let container = document.querySelector(".container");
+        //Append a paragraph
+        container.appendChild(element);
+
+        let first=document.querySelector(".first");
+        //InsertBefore to insert Para before the desired HTML Element
+        // container.insertBefore(element,first);
+
+        //To remove 
+        let second= document.querySelector(".second");
+       //second.remove();
+
+        //To replace HTML Element
+        let element1=document.createElement("p");
+        let node1=document.createTextNode("Im new paragraph,to delete the old ones");
+        element1.appendChild(node1);
+        console.log(element);
+
+        container.replaceChild(element1,second);
+
+    </script>
+
+</body>
+</html>
