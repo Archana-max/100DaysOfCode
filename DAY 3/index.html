@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList and HTML Collection</title>
+</head>
+<body>
+    <div class="container">
+        <h4>Heading 1</h4>
+        <p>Para 1 </p>
+        <p>Para 2 </p>
+        <p>Para 3 </p>
+        <h4>Heading 2</h4>
+        <p>Para 4</p>
+        <p>Para 5</p>
+        <p>Para 6</p>
+    </div>
+    
+    <script>
+        //NodeList
+        //A collection of nodes is called a node list.
+    //NodeList is static one, if we update the nodelist with nodes after iterating them they dont apply styles that are required
+  
+        let nodeList= document.querySelectorAll("p");
+        console.log(nodeList.length);
+        for(let i=0;i<nodeList.length;i++){
+            nodeList[i].style.background="yellow";
+        }
+
+        let container=document.querySelector(".container");
+       let element=document.createElement("p");
+       let node= document.createTextNode("Hi Im New one here");
+       element.appendChild(node);
+       container.appendChild(element);
+
+       //HTMLCollection
+
+       //Unlike Nodelist,HTML Collection is live one, Code gets styled dynamically
+
+        let myCollection=document.getElementsByTagName("p");
+        console.log(myCollection);
+        for(let i=0;i<myCollection.length;i++){
+            myCollection[i].style.background="yellow";
+        }
+
+       let element1=document.createElement("p");
+       let node1= document.createTextNode("Hi Im second New one here");
+       element.appendChild(node1);
+       container.appendChild(element1);
+
+       
+    </script>
+</body>
+</html>
